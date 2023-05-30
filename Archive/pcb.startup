@@ -1,0 +1,11 @@
+ip address add 172.22.160.2/21 dev eth0
+ip link set eth0 up
+ip route add default via 172.22.167.254
+
+useradd -m admin 
+echo 'admin:mdp' | chpasswd
+
+apt update
+apt install openssh-server
+service ssh start
+cp /shared/resolv.conf /etc/resolv.conf

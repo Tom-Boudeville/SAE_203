@@ -1,0 +1,3 @@
+cp /shared/interfaces /etc/network/interfaces
+ifup eth0
+cp /shared/resolv.conf /etc/resolv.conf

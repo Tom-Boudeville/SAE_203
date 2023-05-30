@@ -1,0 +1,11 @@
+ip address add 192.168.1.2/24 dev eth0
+ip link set eth0 up
+ip address add 172.22.175.254/21 dev eth1
+ip link set eth1 up
+ip route add default via 192.168.1.1
+cp /shared/resolv.conf /etc/resolv.conf
+apt update
+apt install -y isc-dhcp-server
+cp /shared/isc-dhcp-server /etc/default/isc-dhcp-server
+cp /shared/dhcpd.conf /etc/dhcp/dhcpd.conf
+service isc-dhcp-server start
